@@ -359,6 +359,7 @@ footer {
     .about-grid, .stats-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .cube-container { display: none; }
+    .profile-photo { display: none; }
 }
 </style>
 
@@ -388,10 +389,13 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary);
-    backdrop-filter: blur(5px);
+    font-size: 1rem;
+    flex-direction: column;
+
+.cube-face i {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
 }
 
 .cube-face.front  { transform: rotateY(0deg) translateZ(75px); }
@@ -400,6 +404,27 @@ footer {
 .cube-face.left   { transform: rotateY(-90deg) translateZ(75px); }
 .cube-face.top    { transform: rotateX(90deg) translateZ(75px); }
 .cube-face.bottom { transform: rotateX(-90deg) translateZ(75px); }
+
+/* Profile Photo */
+.profile-photo {
+    position: absolute;
+    left: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid var(--primary);
+    box-shadow: 0 10px 40px rgba(56,189,248,0.3);
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(56,189,248,0.2), rgba(99,102,241,0.2));
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 @keyframes rotateCube {
     from { transform: rotateX(0deg) rotateY(0deg); }
@@ -422,15 +447,19 @@ footer {
 
 <section id="home" class="hero">
     <div>
-        <!-- 3D Revolving Cube -->
+<!-- Profile Photo -->
+        <div class="profile-photo">
+            <img src="https://via.placeholder.com/200" alt="Rahul Jukanti">
+        </div>
+                <!-- 3D Revolving Cube -->
         <div class="cube-container">
             <div class="cube">
-                <div class="cube-face front">NX</div>
-                <div class="cube-face back">C#</div>
-                <div class="cube-face right">API</div>
-                <div class="cube-face left">CAD</div>
-                <div class="cube-face top">3D</div>
-                <div class="cube-face bottom">++</div>
+<div class="cube-face front"><i class="fas fa-cubes"></i><br>NX Open</div>
+                <div class="cube-face back"><i class="fab fa-python"></i><br>Python</div>
+                <div class="cube-face right"><i class="fas fa-code"></i><br>C#</div>
+                <div class="cube-face left"><i class="fas fa-cog"></i><br>VB.NET</div>
+                <div class="cube-face top"><i class="fas fa-layer-group"></i><br>APIs</div>
+                <div class="cube-face bottom"><i class="fas fa-drafting-compass"></i><br>CAD</div>>
             </div>
         </div>
         <h1>Rahul Jukanti<br><span class="highlight">CAD Automation Engineer</span></h1>
